@@ -5,8 +5,6 @@ except RuntimeError:
 	
 import time
 
-
-
 class Lambo:
 
 	def start_engine():
@@ -18,26 +16,41 @@ class Lambo:
 		GPIO.setup(13,GPIO.OUT)
 		GPIO.setup(15,GPIO.OUT)
 	
+		GPIO.output(7,GPIO.HIGH)
+		GPIO.output(11,GPIO.HIGH)
+		GPIO.output(13,GPIO.HIGH)
+		GPIO.output(15,GPIO.HIGH)
+
 
 	def start_forward():
 		GPIO.output(7,GPIO.LOW)
-		GPIO.output(11,GPIO.HIGH)
 
 	def stop_forward():
 		GPIO.output(7,GPIO.HIGH)
-		GPIO.output(11,GPIO.LOW)
 
 	def start_backward():
-		GPIO.output(13,GPIO.LOW)
-		GPIO.output(15,GPIO.HIGH)
+		GPIO.output(11,GPIO.LOW)
 		
 	def stop_backward():	
-		GPIO.output(13,GPIO.HIGH)
-		GPIO.output(15,GPIO.LOW)
+		GPIO.output(11,GPIO.HIGH)
+		
+	def start_left():
+		GPIO.output(7,GPIO.LOW)
+
+	def stop_left():
+		GPIO.output(7,GPIO.HIGH)
+
+	def start_right():
+		GPIO.output(11,GPIO.LOW)
+		
+	def stop_right():	
+		GPIO.output(11,GPIO.HIGH)
 		
 
 lambo = Lambo()
 
 lambo.start_engine()
 lambo.start_forward()
+time.sleep(5)
+lambo.stop_forward()
 
