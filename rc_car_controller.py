@@ -50,7 +50,10 @@ class Lambo:
 lambo = Lambo()
 
 lambo.start_engine()
-lambo.start_forward()
-time.sleep(5)
-lambo.stop_forward()
+
+while True:
+	lambo.start_forward()
+	time.sleep(5)
+	lambo.stop_forward()
+	time.sleep(1)
 
